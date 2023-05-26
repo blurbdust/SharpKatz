@@ -40,7 +40,6 @@ jobs:
         $Version = git.exe describe --tags --abbrev=0
         $Version = "`"$Version`""
         Get-Content -Path alias.json | .\jq.exe ".version |= `"$Version`"" > ./compiled/alias.json
-        Copy-Item -Path LICENSE -Destination compiled\LICENSE
         cd compiled
         tar.exe -czvf ..\SharpKatz.tar.gz .
     - name: Sign Package
